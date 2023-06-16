@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  who-nba-server:
+    image: node:lts
+    working_dir: /app
+    volumes:
+      - ../../:/app
+      - ../../node_modules:/app/node_modules
+      - ../../dist:/app/dist
+    command: bash -c "npm i --quiet --ignore-scripts && npm run dev"
+    ports:
+      - "8080:8080"
